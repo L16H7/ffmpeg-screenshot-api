@@ -4,6 +4,12 @@
   "main": "index.js",
   "author": "L16H7 <linmyatko@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build": "rm -rf build && yarn run tsoa routes && yarn run tsc --outDir build --experimentalDecorators",
+    "start": "node build/src/server.js",
+    "docker_build": "docker build . -t light/ffmpeg",
+    "docker_run": "docker run -p 8070:3000 -d light/ffmpeg"
+  },
   "dependencies": {
     "body-parser": "^1.19.2",
     "express": "^4.17.3",
